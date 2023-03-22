@@ -9,7 +9,7 @@
 function findArrayIndex(array, text) {
     if(array.includes(text))
     {
-        return console.log(array.indexOf(text))
+        return console.log(`El elemento que buscas esta en la posicion ${array.indexOf(text)}`)
     }else{
         console.log("texto erroneo")
     }
@@ -21,3 +21,5 @@ function findArrayIndex(array, text) {
 const arr = ['Caracol', 'Mosquito', 'Salamandra', 'Ajolote']
 
 findArrayIndex(arr, "Ajolote")
+findArrayIndex(arr, "3")
+findArrayIndex(arr, "Mosquito")

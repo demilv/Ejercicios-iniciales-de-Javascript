@@ -27,5 +27,7 @@ function removeItem(array,text){
 const arr = ['Caracol', 'Mosquito', 'Salamandra', 'Ajolote']
 
 removeItem(arr, "Salamandra")
+removeItem(arr, "Ajolote")
+removeItem(arr, "2")
 
 console.log(arr)
