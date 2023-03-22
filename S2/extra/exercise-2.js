@@ -38,7 +38,7 @@ let tipostotales = 0
 
 for (const usuarios of users){
     for (const volumenes in usuarios.favoritesSounds){       
-        // console.log(usuarios.favoritesSounds[volumenes].volume)
+        // console.log(volumenes)
         media += usuarios.favoritesSounds[volumenes].volume;
         tipostotales++;             
     }
