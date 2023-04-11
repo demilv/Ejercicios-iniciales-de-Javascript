@@ -9,16 +9,26 @@
 const userAnwsers = [];
 
 function confirmExample(description){
-    confirm()
+    console.log(description);
+    // const confirmValue = confirm('Soy un texto');
+        return description;
+ };
+
+function promptExample(promptDescription){
+    console.log(promptDescription);
+    const propmt = prompt('Soy un texto');
+    return promptDescription;
 }
 
-function promptExample(){
-    propmt()
+function father(string, callback){
+    answer = callback(string);
+    userAnwsers.push(answer);
 }
 
-function father(){
-
-}
+father('aaa', confirmExample);
+father('bbb', promptExample);
+father('ccc', confirmExample);
+console.log(userAnwsers);
 
 // guia de confirm y prompt
 // const confirmValue = confirm('Soy un texto');
