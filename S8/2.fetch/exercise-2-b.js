@@ -19,7 +19,7 @@ const get = async (valor) => {
         const p$$ = document.createElement("p")
         p$$.innerHTML = `El nombre ${texto.name}`
         for (paises in texto.country){
-          p$$.innerHTML += ` tiene un ${texto.country[paises].probability} de ser de ${texto.country[paises].country_id}`
+          p$$.innerHTML += ` tiene un ${texto.country[paises].probability*100} de ser de ${texto.country[paises].country_id}`
         }        
         body$$.appendChild(p$$)
 
