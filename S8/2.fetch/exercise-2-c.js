@@ -3,10 +3,24 @@
 body$$ = document.querySelector("body")
 pIds$$ = 0;
 
+const baseUrl = 'https://api.nationalize.io?name=';
+
+    const get = async (valor) => {
+        let buscarvalor = baseUrl + valor
+        console.log(buscarvalor)
+        const response = await fetch(buscarvalor);
+        const res = await response.json();
+        console.log(res)
+        creator(res)
+    };
+
     const creator = (texto) => {
         const p$$ = document.createElement("p")
         const eliminar$$ = document.createElement("button")        
-        p$$.innerHTML = `${texto}`
+        p$$.innerHTML = `El nombre ${texto.name}`
+        for (paises in texto.country){
+        p$$.innerHTML += ` tiene un ${texto.country[paises].probability} de ser de ${texto.country[paises].country_id}`
+        }        
         p$$.setAttribute("id", `${pIds$$}`);
         eliminar$$.setAttribute("id", `a${pIds$$}`)
         pIds$$++
@@ -51,7 +65,7 @@ pIds$$ = 0;
       const input$$ = document.querySelector("input");
       const button$$ = document.querySelector("button");
       button$$.addEventListener("click", () =>
-        creator(input$$.value)
+        get(input$$.value)
     );
   };
 

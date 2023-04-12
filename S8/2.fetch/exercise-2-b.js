@@ -4,10 +4,23 @@
 
 // ```  
 body$$ = document.querySelector("body")
+const baseUrl = 'https://api.nationalize.io?name=';
+
+const get = async (valor) => {
+  let buscarvalor = baseUrl + valor
+  console.log(buscarvalor)
+  const response = await fetch(buscarvalor);
+  const res = await response.json();
+  console.log(res)
+  creator(res)
+};
 
     const creator = (texto) => {
         const p$$ = document.createElement("p")
-        p$$.innerHTML = `${texto}`
+        p$$.innerHTML = `El nombre ${texto.name}`
+        for (paises in texto.country){
+          p$$.innerHTML += ` tiene un ${texto.country[paises].probability} de ser de ${texto.country[paises].country_id}`
+        }        
         body$$.appendChild(p$$)
 
     }
@@ -16,11 +29,11 @@ body$$ = document.querySelector("body")
       const input$$ = document.querySelector("input");
       const button$$ = document.querySelector("button");
       button$$.addEventListener("click", () =>
-        creator(input$$.value)
+        get(input$$.value)
     );
   };
 
-function init(){
+function init(){  
     takeInput()
 }
 
